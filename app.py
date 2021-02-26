@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 username = pd.read_csv('db_credentials.csv').columns[0]
 password = pd.read_csv('db_credentials.csv').columns[1]
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://ojmtbaql:nFciMcShaxSzcmX_X2-9mjoawHmyPtyg@ziggy.db.elephantsql.com:5432/ojmtbaql"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://{}:{}@ziggy.db.elephantsql.com:5432/ojmtbaql".format(username, password)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
